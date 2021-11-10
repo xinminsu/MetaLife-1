@@ -12,7 +12,7 @@ import {HomeScreen} from './home.navigator';
 import {MessagesScreen} from './messages.navigator';
 import {Contacts} from './contacts.navigator';
 import {DiscoverScreen} from './discover.navigator';
-import {ProfilesScreen} from './profiles.navigator';
+import {ProfilesNavigator} from './profiles.navigator';
 
 const BottomTab = createBottomTabNavigator();
 const Drawer = createDrawerNavigator();
@@ -41,7 +41,7 @@ const WholeTabsNavigator = (): React.ReactElement => (
         <BottomTab.Screen name='Messages' component={MessagesScreen}/>
         <BottomTab.Screen name='Contacts' component={Contacts}/>
         <BottomTab.Screen name='Discover' component={DiscoverScreen}/>
-        <BottomTab.Screen name='Profiles' component={ProfilesScreen}/>
+        <BottomTab.Screen name='Profiles' component={ProfilesNavigator}/>
     </BottomTab.Navigator>
 );
 

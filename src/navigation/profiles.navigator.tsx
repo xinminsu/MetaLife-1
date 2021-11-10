@@ -1,34 +1,21 @@
 import React from 'react';
-import { StyleSheet } from 'react-native';
-import { TopNavigation, TopNavigationAction } from '@ui-kitten/components';
-import { SafeAreaLayout } from '../components/safe-area-layout.component';
-import { ArrowIosBackIcon } from '../components/icons';
-import ContentView from '../layouts/social/profile-settings-2';
+import { createStackNavigator } from '@react-navigation/stack';
+import { ProfilesScreen } from '../scenes/profiles/profiles.component';
+import NewWalletName from '../scenes/wallet/NewWalletName';
+import NewWallet from '../scenes/wallet/NewWallet';
+import LoadWallet from '../scenes/wallet/LoadWallet';
+import CreateWallet from '../scenes/wallet/CreateWallet';
+import CreateMnemonics from '../scenes/wallet/CreateMnemonics';
 
-export const ProfilesScreen = ({ navigation }): React.ReactElement => {
+const Stack = createStackNavigator();
 
-    const renderBackAction = (): React.ReactElement => (
-        <TopNavigationAction
-            icon={ArrowIosBackIcon}
-            onPress={navigation.goBack}
-        />
-    );
-
-    return (
-        <SafeAreaLayout
-            style={styles.container}
-            insets='top'>
-            <TopNavigation
-                title='Profile'
-                accessoryLeft={renderBackAction}
-            />
-            <ContentView navigation={navigation}/>
-        </SafeAreaLayout>
-    );
-};
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-    },
-});
+export const ProfilesNavigator = (): React.ReactElement => (
+    <Stack.Navigator headerMode='none'>
+        <Stack.Screen name='Themes' component={ProfilesScreen}/>
+        <Stack.Screen name="NewWalletName" component={NewWalletName}/>
+        <Stack.Screen name="NewWallet" component={NewWallet}/>
+        <Stack.Screen name="LoadWallet" component={LoadWallet}/>
+        <Stack.Screen name="CreateWallet" component={CreateWallet}/>
+        <Stack.Screen name="CreateMnemonics" component={CreateMnemonics}/>
+  </Stack.Navigator>
+);
