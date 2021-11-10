@@ -13,7 +13,7 @@ export default ({ navigation }): React.ReactElement => {
   const styles = useStyleSheet(themedStyles);
 
   const onDoneButtonPress = (): void => {
-    navigation && navigation.goBack();
+    navigation && navigation.navigate('NewWalletName');
   };
 
   const renderPhotoButton = (): React.ReactElement => (
