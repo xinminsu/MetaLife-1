@@ -11,7 +11,7 @@ const Stack = createStackNavigator();
 
 export const ProfilesNavigator = (): React.ReactElement => (
     <Stack.Navigator headerMode='none'>
-        <Stack.Screen name='Themes' component={ProfilesScreen}/>
+        <Stack.Screen name='Profiles' component={ProfilesScreen}/>
         <Stack.Screen name="NewWalletName" component={NewWalletName}/>
         <Stack.Screen name="NewWallet" component={NewWallet}/>
         <Stack.Screen name="LoadWallet" component={LoadWallet}/>
