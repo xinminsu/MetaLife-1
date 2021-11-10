@@ -1,10 +1,10 @@
 import React, {useState} from 'react';
-import {Keyboard, StyleSheet, Text, TextInput, View} from 'react-native';
+import {SafeAreaView, ScrollView, Keyboard, StyleSheet, Text, TextInput, View} from 'react-native';
 
 import {defaultBackground, black} from '../../shared/styles/colors';
 import {defaultPadding, defaultMargin} from '../../shared/styles/measures';
 import RoundBtn from '../../shared/comps/RoundBtn';
-import {connect} from 'react-redux/lib/exports';
+import CreateMnemonics from "./CreateMnemonics";
 
 const NewWalletName = ({navigation}) => {
   let stat = {walletName: '', walletDescription: ''};
@@ -12,6 +12,7 @@ const NewWalletName = ({navigation}) => {
   const [walletDescription, setWalletDescription] = useState('');
 
   return (
+      <SafeAreaView style={styles.flex1}>
     <View style={styles.container}>
       <View style={styles.body}>
         <Text style={styles.message}>Give a name to the new wallet</Text>
@@ -45,10 +46,14 @@ const NewWalletName = ({navigation}) => {
         />
       </View>
     </View>
+      </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
+  flex1: {
+    flex: 1,
+  },
   container: {
     flex: 1,
     alignItems: 'stretch',
@@ -85,13 +90,4 @@ const styles = StyleSheet.create({
   },
 });
 
-const msp = s => s.wallet;
-
-const mdp = (d, p) => {
-  return {
-    setName: name => d({type: 'set', payload: name}),
-    deleteName: name => d({type: 'delete'}),
-  };
-};
-
-export default connect(msp, mdp)(NewWalletName);
+export default NewWalletName;
