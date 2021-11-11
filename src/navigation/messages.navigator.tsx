@@ -7,28 +7,10 @@ import ContentView from '../layouts/messaging/chat-1';
 
 export const MessagesScreen = ({ navigation }): React.ReactElement => {
 
-    const onProfileActionPress = (): void => {
-        navigation.navigate('Profile7');
-    };
-
     const renderBackAction = (): React.ReactElement => (
         <TopNavigationAction
             icon={ArrowIosBackIcon}
             onPress={navigation.goBack}
-        />
-    );
-
-    const renderProfileAction = (): React.ReactElement => (
-        <TopNavigationAction
-            icon={renderProfileImage}
-            onPress={onProfileActionPress}
-        />
-    );
-
-    const renderProfileImage = (): React.ReactElement => (
-        <Image
-            style={styles.profileImage}
-            source={require('../assets/images/image-app-icon.png')}
         />
     );
 
@@ -40,7 +22,6 @@ export const MessagesScreen = ({ navigation }): React.ReactElement => {
                 title='Helen Kuper'
                 subtitle='Last seen just now'
                 accessoryLeft={renderBackAction}
-                accessoryRight={renderProfileAction}
             />
             <ContentView/>
         </SafeAreaLayout>
