@@ -1,5 +1,5 @@
 import React from 'react';
-import { LogBox } from 'react-native';
+import { Image, LogBox } from 'react-native';
 import {
   BottomTabNavigationOptions,
   createBottomTabNavigator,
@@ -17,6 +17,27 @@ import {ProfilesNavigator} from './profiles.navigator';
 const BottomTab = createBottomTabNavigator();
 const Drawer = createDrawerNavigator();
 
+const iconDic = {
+    Home_icon_Default: require('../assets/image/tabBtn/Home_icon_Default.png'),
+    Home_icon_Selected: require('../assets/image/tabBtn/Home_icon_Selected.png'),
+    Messages_icon_Default: require('../assets/image/tabBtn/Messages_icon_Default.png'),
+    Messages_icon_Selected: require('../assets/image/tabBtn/Messages_icon_Selected.png'),
+    Contacts_icon_Default: require('../assets/image/tabBtn/Contacts_icon_Default.png'),
+    Contacts_icon_Selected: require('../assets/image/tabBtn/Contacts_icon_Selected.png'),
+    Discover_icon_Default: require('../assets/image/tabBtn/Discover_icon_Default.png'),
+    Discover_icon_Selected: require('../assets/image/tabBtn/Discover_icon_Selected.png'),
+    Profiles_icon_Default: require('../assets/image/tabBtn/Profiles_icon_Default.png'),
+    Profiles_icon_Selected: require('../assets/image/tabBtn/Profiles_icon_Selected.png'),
+};
+
+function Ionicons({name, focused, color, size}) {
+    return (
+        <Image
+            source={iconDic[name + '_icon_' + (focused ? 'Selected' : 'Default')]}
+        />
+    );
+}
+
 /*
  * When dev is true in .expo/settings.json (started via `start:dev`),
  * open Components tab as default.
@@ -29,14 +50,22 @@ const TabBarVisibilityOptions = ({ route }): BottomTabNavigationOptions => {
   const isNestedRoute: boolean = route.state?.index > 0;
   const isRootRoute: boolean = ROOT_ROUTES.includes(route.name);
 
-  return { tabBarVisible: isRootRoute && !isNestedRoute };
+  return { tabBarVisible: isRootRoute && !isNestedRoute,
+      tabBarIcon: ({focused, color, size}) => (
+          <Ionicons
+              name={route.name}
+              focused={focused}
+              size={size}
+              color={color}
+          />
+      ),
+  };
 };
 
 const WholeTabsNavigator = (): React.ReactElement => (
     <BottomTab.Navigator
         screenOptions={TabBarVisibilityOptions}
-        initialRouteName={initialTabRoute}
-        tabBar={props => <WholeBottomNavigation {...props} />}>
+        initialRouteName={initialTabRoute}>
         <BottomTab.Screen name='Home' component={HomeScreen}/>
         <BottomTab.Screen name='Messages' component={MessagesScreen}/>
         <BottomTab.Screen name='Contacts' component={Contacts}/>
@@ -48,9 +77,8 @@ const WholeTabsNavigator = (): React.ReactElement => (
 export const WholeNavigator = (): React.ReactElement => (
   <Drawer.Navigator
     screenOptions={{ gestureEnabled: false }}
-    drawerContent={props => <WholeDrawer {...props} />}>
+    >
     <Drawer.Screen name='Whole' component={WholeTabsNavigator} />
-    <Drawer.Screen name='Libraries' component={LibrariesScreen} />
   </Drawer.Navigator>
 );
 

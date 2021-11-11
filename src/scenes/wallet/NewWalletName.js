@@ -12,7 +12,6 @@ const NewWalletName = ({navigation}) => {
   const [walletDescription, setWalletDescription] = useState('');
 
   return (
-      <SafeAreaView style={styles.flex1}>
     <View style={styles.container}>
       <View style={styles.body}>
         <Text style={styles.message}>Give a name to the new wallet</Text>
@@ -46,14 +45,10 @@ const NewWalletName = ({navigation}) => {
         />
       </View>
     </View>
-      </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
-  flex1: {
-    flex: 1,
-  },
   container: {
     flex: 1,
     alignItems: 'stretch',
