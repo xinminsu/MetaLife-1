@@ -34,7 +34,7 @@ export const data: Library[] = [
   {
     title: 'Screens',
     description: 'Native navigation primitives for your React Native app',
-    link: 'https://github.com/kmagiera/react-native-screens',
+    link: 'https://github.com/kmagiera/react-native-scenes',
   },
   {
     title: 'Gesture Handler',

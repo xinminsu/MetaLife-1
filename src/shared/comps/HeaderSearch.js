@@ -2,7 +2,7 @@ import {StyleSheet, View} from 'react-native';
 import React from 'react';
 import SchemaStyles from '../SchemaStyles';
 import HeaderLargeTitle from './HeaderLargeTitle';
-import {SearchBar} from 'react-native-screens';
+import {SearchBar} from 'react-native-screnes';
 
 const HeaderSearch = props => {
   const {} = SchemaStyles();

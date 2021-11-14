@@ -5,9 +5,9 @@ import {
   createBottomTabNavigator,
 } from '@react-navigation/bottom-tabs';
 import { createDrawerNavigator } from '@react-navigation/drawer';
-import { WholeBottomNavigation } from '../scenes/whole/whole-bottom-navigation.component';
-import { WholeDrawer } from '../scenes/whole/whole-drawer.component';
-import { LibrariesScreen } from '../scenes/libraries/libraries.component';
+import { WholeBottomNavigation } from '../screens/whole/whole-bottom-navigation.component';
+import { WholeDrawer } from '../screens/whole/whole-drawer.component';
+import { LibrariesScreen } from '../screens/libraries/libraries.component';
 import {HomeScreen} from './home.navigator';
 import {MessagesScreen} from './messages.navigator';
 import {Contacts} from './contacts.navigator';

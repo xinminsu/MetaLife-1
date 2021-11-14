@@ -1,11 +1,11 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
-import { ProfilesScreen } from '../scenes/profiles/profiles.component';
-import NewWalletName from '../scenes/wallet/NewWalletName';
-import NewWallet from '../scenes/wallet/NewWallet';
-import LoadWallet from '../scenes/wallet/LoadWallet';
-import CreateWallet from '../scenes/wallet/CreateWallet';
-import CreateMnemonics from '../scenes/wallet/CreateMnemonics';
+import { ProfilesScreen } from '../screens/profiles/profiles.component';
+import NewWalletName from '../screens/wallet/NewWalletName';
+import NewWallet from '../screens/wallet/NewWallet';
+import LoadWallet from '../screens/wallet/LoadWallet';
+import CreateWallet from '../screens/wallet/CreateWallet';
+import CreateMnemonics from '../screens/wallet/CreateMnemonics';
 
 const Stack = createStackNavigator();
 
